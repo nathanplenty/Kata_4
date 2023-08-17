@@ -4,6 +4,11 @@ import "fmt"
 
 func longestCommonPrefix(str []string) string {
 	// Put Code here
+	if len(str) < 2 {
+		fmt.Println("Input:", str)
+		fmt.Println("Need more Input!")
+		return ""
+	}
 	c := ""
 	cn := ""
 	fmt.Println("Input:", str)
@@ -60,6 +65,6 @@ func main() {
 	// 4.2. If False -> GoTo 3
 	// 5. Check if n >= n+1 ->
 	longestCommonPrefix([]string{"flower", "flow", "flight"})
-	longestCommonPrefix([]string{"dog", "racecar", "car"})    // Output: ""
-	longestCommonPrefix([]string{"apple", "apricot", "apex"}) // Output: "ap"
+	longestCommonPrefix([]string{"dog", "racecar", "car"})
+	longestCommonPrefix([]string{"apple", "apricot", "apex"})
 }
