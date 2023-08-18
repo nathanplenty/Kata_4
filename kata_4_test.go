@@ -1,14 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
 func TestLCP(t *testing.T) {
 	b := false
 	sw := "str"
-	fmt.Println("Test for Pass 'str': ")
 	sg := longestCommonPrefix([]string{"strong", "string", "stress"})
 	if sw == sg {
 		b = true
@@ -21,7 +19,6 @@ func TestLCP(t *testing.T) {
 func TestLCPempty(t *testing.T) {
 	b := false
 	sw := ""
-	fmt.Println("Test for Pass '': ")
 	sg := longestCommonPrefix([]string{"strong", "string", "nope"})
 	if sw == sg {
 		b = true
