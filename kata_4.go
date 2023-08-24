@@ -2,51 +2,26 @@ package main
 
 import "fmt"
 
-func longestCommonPrefix(str []string) string {
-	// 1. Get Slice of Strings (Array / Stack / like these "[]string" )
-	// 1.2. Check if enough Input is given
-	if len(str) < 2 {
-		return ""
+func longestCommonPrefix(stringIn []string) string {
+	var stringOut string
+	if stringIn == nil {
+		return stringOut
 	}
-	c := ""
-	cn := ""
-	l := len(str)
-	// 2. Take Slice[0]
-	sl0 := str[0]
-	// 3. Take Slice[n] (n = +1)
-	n := 1
-	sln := str[n]
-	for {
-		f1 := func() {
-			cn = ""
-			sl := 0
-			sln = str[n]
-			// 3.1. Get shorter len of compared values
-			if len(str[0]) <= len(str[n]) {
-				sl = len(str[0])
-			} else {
-				sl = len(str[n])
-			}
-			// 4. Check Slice[0] element[m] with Slice[n] element[m] (m = + 1)
-			for i := 0; i < sl; i++ {
-				// 4.1. If True -> append char
-				if sl0[i] == sln[i] {
-					c = c + string(sl0[i])
-					cn = cn + string(sl0[i])
-				}
-			}
-		}
-		f1()
-		n = n + 1
-		if len(c) > len(cn) {
-			c = cn
-		}
-		// 5. Check if n >= n+1 ->
-		if n >= l {
-			break
+	shortesLength := len(stringIn[0])
+	for i := 0; i < len(stringIn); i++ {
+		if len(stringIn[i]) < shortesLength {
+			shortesLength = len(stringIn[i])
 		}
 	}
-	return c
+	for char := 0; char < shortesLength; char++ {
+		for word := 0; word < len(stringIn); word++ {
+			if stringIn[word][char] != stringIn[0][char] {
+				return stringOut
+			}
+		}
+		stringOut += string(stringIn[0][char])
+	}
+	return stringOut
 }
 
 func main() {
