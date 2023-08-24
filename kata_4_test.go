@@ -5,25 +5,25 @@ import (
 )
 
 func TestLCP(t *testing.T) {
-	b := false
-	sw := "str"
-	sg := longestCommonPrefix([]string{"strong", "string", "stress"})
-	if sw == sg {
-		b = true
+	boolean := false
+	stringTarget := "str"
+	stringIn := longestCommonPrefix([]string{"strong", "string", "stress"})
+	if stringTarget == stringIn {
+		boolean = true
 	}
-	if b != true {
-		t.Errorf("b = %v; want 'str'", sw)
+	if boolean != true {
+		t.Errorf("boolean = %v; want 'str'", stringTarget)
 	}
 }
 
 func TestLCPempty(t *testing.T) {
-	b := false
-	sw := ""
-	sg := longestCommonPrefix([]string{"strong", "string", "nope"})
-	if sw == sg {
-		b = true
+	boolean := false
+	stringTarget := ""
+	stringIn := longestCommonPrefix([]string{"strong", "string", "nope"})
+	if stringTarget == stringIn {
+		boolean = true
 	}
-	if b != true {
-		t.Errorf("b = %v; want 'str'", sw)
+	if boolean != true {
+		t.Errorf("boolean = %v; want 'str'", stringTarget)
 	}
 }
